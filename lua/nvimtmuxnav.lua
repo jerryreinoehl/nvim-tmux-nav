@@ -1,8 +1,7 @@
 -- ============================================================================
 -- Nvim-Tmux Navigation
 --
--- Navigate through tmux panes and nvim windows seamlessly using a consistent
--- set of hotkeys.
+-- Navigate through tmux panes and nvim windows with the same keybindings.
 -- ============================================================================
 
 local M = {}
