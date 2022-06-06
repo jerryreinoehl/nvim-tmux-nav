@@ -1,6 +1,6 @@
 # Nvim-Tmux Nav
 
-Navigate through Tmux panes and Nvim windows with the same keybindings.
+Navigate through tmux panes and nvim windows with the same keybindings.
 
 
 ## Configuration
@@ -8,8 +8,8 @@ Navigate through Tmux panes and Nvim windows with the same keybindings.
 
 ### Tmux
 
-Tmux needs to be configured to detect if Nvim is running and, if so, send keys
-to Nvim allowing it to handle switching windows.
+tmux needs to be configured to detect if nvim is running and, if so, send keys
+to nvim allowing it to handle switching windows.
 
 Add the following to your tmux config at `~/.config/tmux/tmux.conf` or
 `~/.tmux.conf`, adjusting the keybindings to your liking.
