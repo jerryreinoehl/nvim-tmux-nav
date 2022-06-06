@@ -33,10 +33,8 @@ local function select_pane_cb(dir)
 end
 
 function M.setup(user_config)
-  if user_config then
-    if user_config.keybindings then
-      config.keybindings = user_config.keybindings
-    end
+  if user_config and user_config.keybindings then
+    config.keybindings = user_config.keybindings
   end
 
   if vim.env.VIM_TMUX_NAV and vim.env.VIM_TMUX_NAV ~= "" then
