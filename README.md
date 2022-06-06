@@ -23,7 +23,7 @@ bind-key -n M-l if-shell -F "$is_vim" { send-keys M-l } { select-pane -R }
 ```
 
 To turn these bindings on or off with an environment variable, such as
-`VIM_TMUX_NAV`, use the following.
+`VIM_TMUX_NAV`, use the following instead.
 
 ```tmux
 %if "$VIM_TMUX_NAV"
