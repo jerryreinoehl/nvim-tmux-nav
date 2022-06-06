@@ -9,10 +9,10 @@ local M = {}
 
 local config = {
   keybindings = {
-    left = "<C-e>h",
-    down = "<C-e>j",
-    up = "<C-e>k",
-    right = "<C-e>l",
+    left = "<M-h>",
+    down = "<M-j>",
+    up = "<M-k>",
+    right = "<M-l>",
   }
 }
 
