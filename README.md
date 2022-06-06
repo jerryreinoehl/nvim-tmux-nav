@@ -1,29 +1,58 @@
-## nvim config
-```
-require("nvimtmuxnav").setup({
-  keybindings = {
-    left = "<C-e>h",
-    down = "<C-e>j",
-    up = "<C-e>k",
-    right = "<C-e>l",
-  }
-})
-```
+# Nvim-Tmux Nav
+
+Navigate through Tmux panes and Nvim windows with the same keybindings.
 
 
-## tmux config
+## Configuration
+
+
+### Tmux
+
+Tmux needs to be configured to detect if Nvim is running and, if so, send keys
+to Nvim allowing it to handle switching windows.
+
+Add the following to your tmux config at `~/.config/tmux/tmux.conf` or
+`~/.tmux.conf` adjusting the keybindings to your liking.
+
+```tmux
+is_vim='#{m/ri:^(vim?|view|vimdiff|nvim)$,#{pane_current_command}}'
+bind-key -n M-h if-shell -F "$is_vim" { send-keys M-h } { select-pane -L }
+bind-key -n M-j if-shell -F "$is_vim" { send-keys M-j } { select-pane -D }
+bind-key -n M-k if-shell -F "$is_vim" { send-keys M-k } { select-pane -U }
+bind-key -n M-l if-shell -F "$is_vim" { send-keys M-l } { select-pane -R }
 ```
-# Select tmux pane or vim buffer (Alt-h,j,k,l)
+
+To turn these bindings on or off with an environment variable, such as
+`VIM_TMUX_NAV`, use the following.
+
+```tmux
 %if "$VIM_TMUX_NAV"
   is_vim='#{m/ri:^(vim?|view|vimdiff|nvim)$,#{pane_current_command}}'
-  bind-key -n M-h if-shell -F "$is_vim" { send-keys C-e h } { select-pane -L }
-  bind-key -n M-j if-shell -F "$is_vim" { send-keys C-e j } { select-pane -D }
-  bind-key -n M-k if-shell -F "$is_vim" { send-keys C-e k } { select-pane -U }
-  bind-key -n M-l if-shell -F "$is_vim" { send-keys C-e l } { select-pane -R }
+  bind-key -n M-h if-shell -F "$is_vim" { send-keys M-h } { select-pane -L }
+  bind-key -n M-j if-shell -F "$is_vim" { send-keys M-j } { select-pane -D }
+  bind-key -n M-k if-shell -F "$is_vim" { send-keys M-k } { select-pane -U }
+  bind-key -n M-l if-shell -F "$is_vim" { send-keys M-l } { select-pane -R }
 %else
   bind-key -n M-h select-pane -L
   bind-key -n M-j select-pane -D
   bind-key -n M-k select-pane -U
   bind-key -n M-l select-pane -R
 %endif
+```
+
+
+### Nvim
+
+Add the following to your nvim config file at `~/.config/nvim/init.lua`. The
+keybindings here should match those set in your tmux config.
+
+```lua
+require("nvimtmuxnav").setup({
+  keybindings = {
+    left = "<M-h>",
+    down = "<M-j>",
+    up = "<M-k>",
+    right = "<M-l>",
+  }
+})
 ```
