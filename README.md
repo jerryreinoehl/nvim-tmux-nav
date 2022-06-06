@@ -12,7 +12,7 @@ Tmux needs to be configured to detect if Nvim is running and, if so, send keys
 to Nvim allowing it to handle switching windows.
 
 Add the following to your tmux config at `~/.config/tmux/tmux.conf` or
-`~/.tmux.conf` adjusting the keybindings to your liking.
+`~/.tmux.conf`, adjusting the keybindings to your liking.
 
 ```tmux
 is_vim='#{m/ri:^(vim?|view|vimdiff|nvim)$,#{pane_current_command}}'
