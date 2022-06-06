@@ -37,12 +37,10 @@ function M.setup(user_config)
     config.keybindings = user_config.keybindings
   end
 
-  if vim.env.VIM_TMUX_NAV and vim.env.VIM_TMUX_NAV ~= "" then
-    vim.keymap.set("n", config.keybindings.left, select_pane_cb("h"))
-    vim.keymap.set("n", config.keybindings.down, select_pane_cb("j"))
-    vim.keymap.set("n", config.keybindings.up, select_pane_cb("k"))
-    vim.keymap.set("n", config.keybindings.right, select_pane_cb("l"))
-  end
+  vim.keymap.set("n", config.keybindings.left, select_pane_cb("h"))
+  vim.keymap.set("n", config.keybindings.down, select_pane_cb("j"))
+  vim.keymap.set("n", config.keybindings.up, select_pane_cb("k"))
+  vim.keymap.set("n", config.keybindings.right, select_pane_cb("l"))
 end
 
 return M
