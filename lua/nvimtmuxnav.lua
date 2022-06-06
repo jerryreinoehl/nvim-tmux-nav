@@ -1,7 +1,7 @@
 -- ============================================================================
--- Vim-Tmux Navigation
+-- Nvim-Tmux Navigation
 --
--- Navigate through tmux panes and vim windows seamlessly using a consistent
+-- Navigate through tmux panes and nvim windows seamlessly using a consistent
 -- set of hotkeys.
 -- ============================================================================
 
