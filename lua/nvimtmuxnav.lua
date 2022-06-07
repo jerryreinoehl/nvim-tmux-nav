@@ -18,7 +18,11 @@ local config = {
 local function select_pane_cb(dir)
   local tmux_dir = vim.fn.tr(dir, "hjkl", "LDUR")
 
-  local function inner()
+  local function nvim_select_pane()
+    vim.cmd("wincmd " .. dir)
+  end
+
+  local function nvim_tmux_select_pane()
     local win_num = vim.api.nvim_win_get_number(0)
 
     vim.cmd("wincmd " .. dir)
@@ -28,7 +32,11 @@ local function select_pane_cb(dir)
     end
   end
 
-  return inner
+  if vim.env.TMUX then
+    return nvim_tmux_select_pane
+  else
+    return nvim_select_pane
+  end
 end
 
 function M.setup(user_config)
