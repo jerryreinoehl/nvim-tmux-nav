@@ -47,12 +47,12 @@ Add the following to your nvim config file at `~/.config/nvim/init.lua`. The
 keybindings here should match those set in your tmux config.
 
 ```lua
-require("nvimtmuxnav").setup({
+require("nvimtmuxnav").setup {
   keybindings = {
     left = "<M-h>",
     down = "<M-j>",
     up = "<M-k>",
     right = "<M-l>",
   }
-})
+}
 ```
